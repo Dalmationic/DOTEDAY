@@ -1,9 +1,7 @@
-:root {
-    
+:root {    
     --main-color: #FEEFDD;
     --second-color: #201E1F;
     --accent-color: #FF4000;
-    --accent-color2: #0000FF;
 }
 
 /*
@@ -19,6 +17,8 @@
     --second-color: #FEEFDD;
     --accent-color: #FF4000;
     --accent-color2: #0000FF;
+
+    
 */
 
 @font-face {
@@ -47,7 +47,7 @@ html {
     font-size: 62.5%;
 }
 body {
-    height: 100vh;
+    height: 90vh;
     max-width: 1600px;
 
     margin: 0 auto;
@@ -59,7 +59,7 @@ body {
 
 header {
     display: grid;
-    grid-template-columns: 1.75fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     gap: 0.8rem;
 
     margin: 1.4rem 0 0 0;
@@ -70,7 +70,7 @@ header {
 .halftone {
     background-image: 
         radial-gradient(
-            rgba(0, 0, 0, 1) 80%,
+            var(--second-color) 80%,
             transparent 0%
         );
     background-size: 0.25rem 0.25rem;
@@ -81,7 +81,7 @@ header {
 
     justify-content: flex-end;
     align-items: center;
-    padding-right: 3rem;
+    padding-right: 2.4rem;
 
     font-size: 4rem;
 
@@ -105,7 +105,7 @@ header {
     position: relative;
 
     margin-right: auto;
-    padding-left: 3rem;
+    padding-left: 1.5rem;
 
     align-items: center;
 
@@ -117,11 +117,26 @@ header {
     background-color: var(--accent-color);
 }
 #nav-menu img { width: fit-content; }
+#switch-contrast {
+    background-color: transparent;
+    border: none;
+
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+}
 
 @media (max-width: 720px) {
-    header {grid-template-columns: 3fr 1fr;}
+    header {grid-template-columns: 3.5fr 1fr;}
 
     .halftone {
         background-size: 0.3rem 0.3rem;
     }
 }
+
+svg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;  /* Stretch the SVG to fill the entire width */
+  }  

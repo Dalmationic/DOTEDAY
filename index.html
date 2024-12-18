@@ -3,24 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=contrast,menu" />
     <link href="style.css" type="text/css" rel="stylesheet">
-    <title>PAPERTOMIC</title>
+    <title>Doteday</title>
 </head>
 <body>
     <header>
         <div class="header-content, halftone">
-            <a href="" id="nav-home">PAPERTOMIC</a>
+            <a href="" id="nav-home">Doteday</a>
         </div>
         <nav>
             <button id="nav-menu"><span class="material-symbols-outlined">menu</span></button>
         </nav>
     </header>
-    <main>
-
+    <main>       
+        <button id="switch-contrast" onclick="toggleColors()">
+            <span class="material-symbols-outlined" style="color: var(--second-color); font-size: 4rem">contrast</span>
+        </button>                                  
     </main>
     <footer>
 
     </footer>
+    <script>
+        function toggleColors() {
+          const root = document.documentElement;
+          const isMainColor = root.style.getPropertyValue('--main-color') === '#201E1F'; 
+        
+          if (isMainColor) {
+            root.style.setProperty('--main-color', '#FEEFDD'); 
+            root.style.setProperty('--second-color', '#201E1F'); 
+            localStorage.setItem('colorScheme', 'light'); 
+          } else {
+            root.style.setProperty('--main-color', '#201E1F'); 
+            root.style.setProperty('--second-color', '#FEEFDD'); 
+            localStorage.setItem('colorScheme', 'dark'); 
+          }
+        }
+        
+        window.onload = function() {
+          const savedScheme = localStorage.getItem('colorScheme');
+          if (savedScheme === 'light') {
+            toggleColors();
+          }
+        };
+    </script>
 </body>
 </html>
